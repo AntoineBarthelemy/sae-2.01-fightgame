@@ -40,23 +40,28 @@ Moteur de jeu Pierre Frédéric Villard
 
 ### Structuration du Développement
 
-Partie réservé à la specification de la structuration du projet et du développement, de quel angle le problème a t-il été analysé et quelle solutions ont été apporté.
+Voir tableau envoyez par Antoine Discord
 
 ### Graphiques et Bande sonore
 
-Partie réservé à l'explicitation des méthodes utilisé pour la partie graphique et musicale du projet. On peut ici apporter des technologie propre au design et à la composition, des licences et sources de droits.
+Sprite
+Background
 
 ### Historique et Versionnement
 
-Partie réservé au différentes version Alpha, Bêta et déployé du projet, comprennant les version de développement, les archives de fonctionnalité.
+Version1.0.0Alpha - A rendre le 16 Juin 2025
 
 ## Installation et Lancement
 
 Cette partie réclamé par le sujet, et nécessaire pour une bonne utilisation de l'application renseignera la moyen de bien installer l'application, bien la compiler et bien l'exécuter, c'est le guide de démarrage.
 
+-> Faire le Mini Tuto
+
 ## Distribution
 
 Cette partie concerne la manière dont le projet est transmis, un launcher pour la distribution, pour les mise à jour, un package à télécharger, une copie du GIT sous forme open-source.
+
+-> GitLab
 
 ## Projet Collaboratif 
  
