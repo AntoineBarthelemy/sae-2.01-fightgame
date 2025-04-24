@@ -1,11 +1,15 @@
-# [Name Game Project] • SAE 2.01 - BUT1 S2
+# StreetFighterIUT • SAE 2.01 - BUT1 S2
 
-Description du projet, du jeu de combat
+StreetFighterIUT est un jeu de combat réalisé dans le cadre d'un projet en étude supérieur, en équipe de 3. Ce jeu se joue à 2 joueur uniquement et permet de se battre avec des capacité tel que des des coup de pieds ou des attaques spéciale, de sé défendre ou même d'effectuer des transformation. Le but, réduire la barre de vie de l'adversaire à 0 pour gagner la partie.
 
-Détails des fonctionnalité principal et du gameplay sous forme de liste à puce :
-
-- Gameplay
-- Fonctionnalité
+- 2 Joueurs
+- Joueurs dirigeable
+- Attaque et Défense
+- Transformation
+- Choisir son personnage
+- Stamina
+- Animation
+- Capacitée 
 
 ## Liens utiles
 
@@ -30,7 +34,9 @@ Cependant, si vous envisagez d'utiliser, de modifier ou d'effectuer toute autre 
 
 ### Langages et Matériel
 
-Ici sera listé les technologies, matériels et languages de programmtion utilisé pour le développement du projet. On prend également en compte les configurations de projets, les extensions de développement et les librairies.
+Java
+Java Swing
+Moteur de jeu Pierre Frédéric Villard
 
 ### Structuration du Développement
 
