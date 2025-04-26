@@ -97,3 +97,7 @@ public class NameClass extends/implements NameClass {
     }
 
 }
+
+
+Cette partie du document traite le mapping utilisé dans le cadre de ce projet comme convenu par les membres du groupe. En effet, il est important 
+de savoir quelle touche (jostick) inclus sur le stick arcade sera associé à quelle action. Voici un aperçu du stick arcade pour un joueur "[Lien vers le stick arcade](https://drive.google.com/file/d/1jAYOLWE7LX0QYwKgoFY2URomPZSdYKxE/view?usp=sharing)"
