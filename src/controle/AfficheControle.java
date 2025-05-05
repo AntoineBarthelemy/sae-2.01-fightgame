@@ -46,6 +46,7 @@ public class AfficheControle {
 		// lien vers le Controle
 		this.c = c;
 		
+		
 		f.pack();
 		f.setVisible(true);
 		dessin();
