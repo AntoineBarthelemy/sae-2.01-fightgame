@@ -24,10 +24,7 @@ import miscellaneous.AfficheurPourDeux;
  /* - Ancien jeu d'arcade (Pac-Man, Space Invider, Snake, ...) */
  /* ========================================================== */
 
-/**
- *
- * @author Pierre-Frederic Villard
- */
+
 public class testFighter {
      public static void main(String[] args) throws Exception {
         
