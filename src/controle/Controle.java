@@ -47,4 +47,6 @@ public class Controle {
      *
      */
       public boolean enAir;
+
+      public boolean attaque = false;
 }

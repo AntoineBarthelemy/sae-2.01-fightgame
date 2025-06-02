@@ -34,7 +34,7 @@ public class ObjetHeros extends Objet{
 	public Sprites sprites;
 	
 	//lien  vers son controleur
-	Controle c;
+    public Controle c;
 	
 	//fait une balle par d�faut
 
@@ -80,13 +80,28 @@ public class ObjetHeros extends Objet{
      * @param g
      */
     @Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g)
+	{
 		g.setColor(Color.black);
 		
 		//change de repere
 		int[]tab=Repere.changeRepere(this);
 		sprites.affiche(tab[0],tab[1],g);
 		sprites.anime();
+
+		if(c.attaque)
+		{
+			int coupX = (vx >= 0) ? tab[0] + tab[2] : tab[0] - 20;
+			int coupY = tab[1] + tab[3] / 2;
+
+			g.setColor(Color.RED);
+			g.fillRect(coupX, coupY, 20, 20);
+
+		}
+
+
+
+
 	}
 	
 	
