@@ -99,5 +99,4 @@ public abstract class Sprites {
     {
         im = ImageIO.read(new File(fileName));
     }
-    
 }

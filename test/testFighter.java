@@ -64,7 +64,7 @@ public class testFighter {
         
         monMonde.addHero(0,0,500,20);
         monMonde.heros.get(1).c = cClavier2.c;
-        monMonde.heros.get(1).sprites.assignNewImage("hero2.png");
+        monMonde.heros.get(1).sprites.assignNewImage("sprites/Ryu/attaque_poing1.png");
 
 
         System.out.println("PV joueur 1 : " + monMonde.heros.get(0).getPv());

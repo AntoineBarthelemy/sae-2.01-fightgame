@@ -38,7 +38,7 @@ public class ObjetHeros extends Objet{
 	//lien  vers son controleur
 	public Controle c;
 
-	//fait une balle par d�faut
+	//fait une balle par d faut
 
 	/**
 	 *
@@ -93,12 +93,7 @@ public class ObjetHeros extends Objet{
 
 		if(c.attaque)
 		{
-			int coupX = (vx >= 0) ? tab[0] + tab[2] : tab[0] - 20;
-			int coupY = tab[1] + tab[3] / 2;
-
-			g.setColor(Color.RED);
-			g.fillRect(coupX, coupY, 20, 20);
-
+			((SpritesHeros)sprites).afficherAttaque(g, tab[0], tab[1], tab[2], tab[3]);
 		}
 
 
