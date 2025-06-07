@@ -29,24 +29,26 @@ import afficheur.SpritesHeros;
  */
 public class ObjetHeros extends Objet{
 
-	
+	private int pv = 100;
+
+
 	//distributeur de sprite
 	public Sprites sprites;
-	
+
 	//lien  vers son controleur
-    public Controle c;
-	
+	public Controle c;
+
 	//fait une balle par d�faut
 
-    /**
-     *
-     * @throws IOException
-     */
+	/**
+	 *
+	 * @throws IOException
+	 */
 	public ObjetHeros() throws IOException
 	{
-		
-	
-		
+
+
+
 		sprites=new SpritesHeros(this);
 		height=10;
 		width=10;
@@ -57,10 +59,10 @@ public class ObjetHeros extends Objet{
 		ax=0;
 		ay=-0.04;
 	}
-    /**
-     *
-     * @throws IOException
-     */
+	/**
+	 *
+	 * @throws IOException
+	 */
 	public ObjetHeros(int x, int y) throws IOException
 	{
 		sprites=new SpritesHeros(this);
@@ -68,22 +70,22 @@ public class ObjetHeros extends Objet{
 		width=10;
 		height=sprites.sprites.get("fixe").ty;
 		width=sprites.sprites.get("fixe").tx;
-                px=x;
-                py=y;
+		px=x;
+		py=y;
 		vx=1;
 		vy=3;
 		ax=0;
 		ay=-0.04;
 	}
-    /**
-     *
-     * @param g
-     */
-    @Override
+	/**
+	 *
+	 * @param g
+	 */
+	@Override
 	public void draw(Graphics g)
 	{
 		g.setColor(Color.black);
-		
+
 		//change de repere
 		int[]tab=Repere.changeRepere(this);
 		sprites.affiche(tab[0],tab[1],g);
@@ -103,6 +105,25 @@ public class ObjetHeros extends Objet{
 
 
 	}
-	
-	
+
+
+	public int getPv() {
+		return pv;
+	}
+
+	public void setPv(int pv) {
+		this.pv = pv;
+	}
+
+	public void retirerPv(int degats)
+	{
+		this.pv -= degats;
+		if(this.pv <= 0) this.pv = 0;
+
+		System.out.println("Pv restants :" + this.pv);
+	}
+
+
+
+
 }

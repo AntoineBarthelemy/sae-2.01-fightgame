@@ -91,7 +91,11 @@ public class ControleurClavier implements KeyListener{
 		if (affiche) afficheur.dessin();
 
 		// attaque
-		if (e.getKeyCode()==KeyEvent.VK_F) c.attaque = true;
+		if (e.getKeyCode()==KeyEvent.VK_F) {
+			c.attaque = true;
+
+			
+		};
 	}
 
 	@Override

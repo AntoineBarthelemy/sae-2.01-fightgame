@@ -59,7 +59,11 @@ public class ControleurClavier2 extends ControleurClavier{
 		}
 
 		// attaque
-		if (e.getKeyCode()==KeyEvent.VK_T) c.attaque = true;
+		if (e.getKeyCode()==KeyEvent.VK_T){
+			c.attaque = true;
+
+
+		}
 	}
 
 	@Override

@@ -12,9 +12,7 @@
 package physique;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import static main.JeuPhysique.*;
-import controle.Controle;
 
 //permet de g�rer la physique
 
@@ -51,8 +49,13 @@ public class MoteurPhysique {
      *
      */
 	public void update() {
-            
-                monde.balle.collision=0;
+
+
+
+
+
+
+		monde.balle.collision=0;
 		// mise a jour des objets
 		for (Objet o : monde.objets) {
 			o.update();
@@ -64,7 +67,7 @@ public class MoteurPhysique {
 			monstre.evolue();
                         if (Collision.typeOfCollision==MONSTRE)
                         {
-                            monde.balle.collision=MONSTRE;  
+                            monde.balle.collision=MONSTRE;
                             current_monster_index=monstre.index;
                         }
 		}
@@ -79,9 +82,9 @@ public class MoteurPhysique {
 			monde.balle.ax = -0.1;
 			if (monde.balle.vx<-2)
 					monde.balle.vx=-2;
-			
+
 			}
-			
+
 		else if (monde.c.droite)
 		{
 			if (monde.balle.ovx==0)
@@ -91,7 +94,7 @@ public class MoteurPhysique {
 			monde.balle.ax = 0.1;
 			if (monde.balle.vx>2)
 					monde.balle.vx=2;
-			
+
 			}
 		else
 		{
@@ -106,11 +109,11 @@ public class MoteurPhysique {
 			else
 			if (monde.balle.vx<0) monde.balle.ax = +0.1;
 		}
-		
-                
+
+
 		//gestion des sauts
                 if (gravity)
-                {        
+                {
                     if ((monde.c.haut)&&(!monde.c.enAir))
                     {
                             monde.balle.sprites.changeEtape("saut");
@@ -130,9 +133,9 @@ public class MoteurPhysique {
                     if (monde.c.bas)
                     {
                         monde.balle.vy = -1;
-                    }                                      
+                    }
                 }
-		
+
 
 		// mise a jour de la balle
 		monde.balle.update();
@@ -156,32 +159,39 @@ public class MoteurPhysique {
 						else
 							monde.balle.sprites.changeEtape("course");
 						}
-					
+
 				}
 
 				//si collision vient du Bas
 				if (Collision.collisionBas(monde.balle,obj))
 				{
-                                   
+
 					monde.balle.py = monde.balle.py - monde.balle.vy;
 					monde.balle.vy=-monde.balle.vy;;
 				}
-                                
+
                                 //si collision vient de la gauche ou droite
 				if (Collision.collisionGauche(monde.balle,obj)
 						|| (Collision.collisionDroite(monde.balle,obj)))
 				{	monde.balle.px = monde.balle.px - monde.balle.vx;
 					monde.balle.vx-=monde.balle.ax;
 					monde.balle.vx = -monde.balle.vx;
-				}   
+				}
                                 current_wall_index=obj.index;
-			} 
-                                              
+			}
+
 		}
                 // Assign the last collision type if not a monster
                 if (monde.balle.collision==0)
+				{
                    monde.balle.collision=Collision.typeOfCollision;
 
+				}
+
+
+
 	}
+
+
 
 }

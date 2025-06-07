@@ -52,6 +52,8 @@ public class testFighter {
         //sol
         monMonde.addMur(-200,-20,1000,20);
 
+
+
    
             
         //////////////////////
@@ -63,6 +65,10 @@ public class testFighter {
         monMonde.addHero(0,0,500,20);
         monMonde.heros.get(1).c = cClavier2.c;
         monMonde.heros.get(1).sprites.assignNewImage("hero2.png");
+
+
+        System.out.println("PV joueur 1 : " + monMonde.heros.get(0).getPv());
+        System.out.println("PV joueur 2 : " + monMonde.heros.get(1).getPv());
         //monMonde.heros.get(1).
         
         //on creer le moteur physique

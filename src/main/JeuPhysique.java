@@ -43,7 +43,7 @@ public class JeuPhysique{
 	
 	public void update()
 	{
-		moteurPhys.update();			
+		moteurPhys.update();
 	}
 	
 	public void render()
