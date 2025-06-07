@@ -59,6 +59,7 @@ public class Collision {
             if (o2 instanceof ObjetHeros)
             {
                 typeOfCollision=HERO;
+
             }
             if (o2 instanceof ObjetMur)
             {
