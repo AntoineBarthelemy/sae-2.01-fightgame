@@ -11,6 +11,7 @@ import miscellaneous.MurCool;
 import physique.Monde;
 import physique.MoteurPhysique;
 import afficheur.Repere;
+import afficheur.SpritesHeros;
 import miscellaneous.AfficheurPourDeux;
 
 /* ========================================================== */
@@ -64,7 +65,11 @@ public class testFighter {
         
         monMonde.addHero(0,0,500,20);
         monMonde.heros.get(1).c = cClavier2.c;
-        monMonde.heros.get(1).sprites.assignNewImage("sprites/Ryu/attaque_poing1.png");
+
+        monMonde.heros.get(0).sprites = new SpritesHeros(monMonde.heros.get(0), "sprites/Ken"); 
+        monMonde.heros.get(1).sprites = new SpritesHeros(monMonde.heros.get(1), "sprites/Ryu"); 
+        
+        monMonde.heros.get(1).sprites.assignNewImage("sprites/Ryu/attaque-poing1.png");
 
 
         System.out.println("PV joueur 1 : " + monMonde.heros.get(0).getPv());
