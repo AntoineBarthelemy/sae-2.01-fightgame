@@ -44,16 +44,29 @@ public class BouclePourDeux extends BouclePrincipale{
                 monMonde.c2=cClavier2.c;
 
 		//afficher
-		System.out.println("\n\n**************************************************");
-		System.out.println("*  "+nom);
-		System.out.println("*                                                 *");
-		System.out.println("*** touche 'Q' pour arreter jeu                  ***");
-		System.out.println("****************************************************");
-		System.out.println("\n\n");
-		
-		//fps
+			 System.out.println("**************************************************");
+			 System.out.println("*                 StreetFighterIUT               *");
+			 System.out.println("**************************************************");
+			 System.out.println("* Commandes Joueur 1 (Ken - à gauche)            *");
+			 System.out.println("* Déplacement : Flèches directionnelles          *");
+			 System.out.println("* Coup de poing : Pavé numérique 0               *");
+			 System.out.println("* Coup de pied  : Pavé numérique 1               *");
+			 System.out.println("* Défense       : Pavé numérique 2               *");
+			 System.out.println();
+			 System.out.println("* Commandes Joueur 2 (Ryu - à droite)            *");
+			 System.out.println("* Déplacement : Z (haut), Q (gauche), S (bas), D (droite) *");
+			 System.out.println("* Coup de poing : T                              *");
+			 System.out.println("* Coup de pied  : F                              *");
+			 System.out.println("* Défense       : R                              *");
+			 System.out.println();
+			 System.out.println("* Appuyez sur P pour quitter                     *");
+			 System.out.println("**************************************************");
+
+
+
+			 //fps
 		long dureeBoucle=1000000/fps;
-		System.out.println(" ---> duree d'une boucle "+dureeBoucle/1000.);		
+
 		
 		//lancement
 		Thread.sleep(1000);

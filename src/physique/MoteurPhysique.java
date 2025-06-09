@@ -32,7 +32,7 @@ public class MoteurPhysique {
         
         public boolean gravity=true;
         
-        public float gravityValue=-0.04f;
+        public float gravityValue=-0.05f;
         
         public int current_monster_index=0;
         public int current_wall_index=0;
@@ -64,6 +64,8 @@ public class MoteurPhysique {
 
 		// mise a jour des monstres
 		for (ObjetMonstre monstre : monde.monstres) {
+
+
 			monstre.evolue();
                         if (Collision.typeOfCollision==MONSTRE)
                         {

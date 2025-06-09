@@ -38,6 +38,7 @@ public class ObjetMonstre extends Objet {
 	// son etat
 	Etat etat = Etat.PROMENE;
 
+
 	// lien vers le monde
 	Monde m;
        

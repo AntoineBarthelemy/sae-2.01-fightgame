@@ -40,6 +40,8 @@ public class ObjetHeros extends Objet{
 
 	//fait une balle par d faut
 
+	Monde m;
+
 	/**
 	 *
 	 * @throws IOException
@@ -115,9 +117,22 @@ public class ObjetHeros extends Objet{
 		this.pv -= degats;
 		if(this.pv <= 0) this.pv = 0;
 
-		System.out.println("Pv restants :" + this.pv);
 	}
 
+	public void evolue(ObjetHeros m, ObjetHeros l)
+	{
+		if (Collision.collision(m, l) && m.c.attaque_coup_poing && !l.c.position_defense)
+		{
+			l.retirerPv(10);
+
+		}
+
+		if(Collision.collision(m, l) && l.c.attaque_coup_poing && !m.c.position_defense)
+		{
+			m.retirerPv(10);
+
+		}
+	}
 
 
 

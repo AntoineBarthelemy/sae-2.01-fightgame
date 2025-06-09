@@ -72,8 +72,6 @@ public class testFighter {
         monMonde.heros.get(1).sprites.assignNewImage("sprites/Ryu/attaque-poing1.png");
 
 
-        System.out.println("PV joueur 1 : " + monMonde.heros.get(0).getPv());
-        System.out.println("PV joueur 2 : " + monMonde.heros.get(1).getPv());
         //monMonde.heros.get(1).
         
         //on creer le moteur physique

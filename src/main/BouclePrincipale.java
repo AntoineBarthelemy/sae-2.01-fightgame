@@ -4,7 +4,7 @@ import controle.ControleurClavier;
 
 public class BouclePrincipale {
 
-	public String nom = "Mon super Jeu";
+	public String nom = "StreetFighterIUT";
 	public int fps = 100;
 	public JeuPhysique jeuPhysique;
 	// creation du controleur

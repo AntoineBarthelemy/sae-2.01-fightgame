@@ -12,6 +12,8 @@ package miscellaneous;
 
 import controle.Controle;
 import controle.ControleurClavier;
+
+import static main.JeuPhysique.HERO;
 import static main.JeuPhysique.MONSTRE;
 import physique.Collision;
 import physique.MoteurPhysique;
@@ -163,5 +165,17 @@ public class MoteurPourDeux extends MoteurPhysique{
                    hero.collision=Collision.typeOfCollision;
 
 	}
-    }
+
+
+		for (ObjetHeros hero : monde.heros) {
+
+			hero.evolue(monde.heros.get(0), monde.heros.get(1));
+			if (Collision.typeOfCollision==HERO)
+			{
+				monde.balle.collision=HERO;
+				current_wall_index=hero.index;
+			}
+		}
+
+	}
 }

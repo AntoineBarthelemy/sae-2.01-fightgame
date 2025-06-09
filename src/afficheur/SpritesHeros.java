@@ -65,7 +65,6 @@ public class SpritesHeros extends Sprites {
 	private final int intervalleFrame = 60;
 
 	public void afficherAttaque(Graphics g, int x, int y, int w, int h) {
-		    System.out.println("Attaque affichée : " + heros.getClass().getSimpleName() + ", Frame " + frameAttaque);
 		if (spritesAttaque != null && spritesAttaque.length > 0) {
 			long maintenant = System.currentTimeMillis();
 

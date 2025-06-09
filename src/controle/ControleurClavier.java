@@ -83,7 +83,7 @@ public class ControleurClavier implements KeyListener{
 			c.bas=true;
 		}		
 		//touche up
-		if (e.getKeyCode()==KeyEvent.VK_1)
+		if (e.getKeyCode()==KeyEvent.VK_P)
 		{
 			fin=true;
 		}
@@ -91,14 +91,19 @@ public class ControleurClavier implements KeyListener{
 		if (affiche) afficheur.dessin();
 
 		// attaque
-		if (e.getKeyCode()==KeyEvent.VK_F) {
+		if (e.getKeyCode()==KeyEvent.VK_NUMPAD0) {
 			c.attaque_coup_poing = true;
 
 			
 		};
 
+		if(e.getKeyCode()==KeyEvent.VK_NUMPAD1)
+		{
+			c.attaque_coup_pied = true;
+		}
+
 		// Defense
-		if (e.getKeyCode()==KeyEvent.VK_G) {
+		if (e.getKeyCode()==KeyEvent.VK_NUMPAD2) {
 			c.position_defense = true;
 		}
 	}
@@ -127,11 +132,17 @@ public class ControleurClavier implements KeyListener{
 		}
 		if (affiche) afficheur.dessin();
 
-		if (e.getKeyCode()==KeyEvent.VK_F) c.attaque_coup_poing = false;
+		if (e.getKeyCode()==KeyEvent.VK_NUMPAD0) c.attaque_coup_poing = false;
 
-		if(e.getKeyCode()==KeyEvent.VK_G)
+		if(e.getKeyCode()==KeyEvent.VK_NUMPAD2)
 		{
 			c.position_defense = false;
+		}
+
+
+		if(e.getKeyCode()==KeyEvent.VK_NUMPAD1)
+		{
+			c.attaque_coup_pied = false;
 		}
 		
 	}

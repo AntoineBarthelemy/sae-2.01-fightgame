@@ -50,4 +50,5 @@ public class Controle {
 
       public boolean attaque_coup_poing = false;
       public boolean position_defense = false;
+      public boolean attaque_coup_pied = false;
 }

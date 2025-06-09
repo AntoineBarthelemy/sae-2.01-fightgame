@@ -14,6 +14,7 @@ import controle.ControleurClavier;
 
 import java.awt.event.KeyEvent;
 
+
 /**
  *
  * @author Pierre-Frederic Villard
@@ -51,13 +52,14 @@ public class ControleurClavier2 extends ControleurClavier{
 			c.bas=true;
 		}		
 		//touche up
-		if (e.getKeyCode()==KeyEvent.VK_1)
+		if (e.getKeyCode()==KeyEvent.VK_P)
 		{
 			fin=true;
 		}
 
 		// attaque
 		if (e.getKeyCode()==KeyEvent.VK_T){
+
 			c.attaque_coup_poing = true;
 
 
@@ -66,6 +68,11 @@ public class ControleurClavier2 extends ControleurClavier{
 		if(e.getKeyCode()==KeyEvent.VK_R)
 		{
 			c.position_defense = true;
+		}
+
+		if(e.getKeyCode()==KeyEvent.VK_F)
+		{
+			c.attaque_coup_pied = true;
 		}
 	}
 
@@ -97,6 +104,11 @@ public class ControleurClavier2 extends ControleurClavier{
 		if(e.getKeyCode()==KeyEvent.VK_R)
 		{
 			c.position_defense = false;
+		}
+
+		if(e.getKeyCode()==KeyEvent.VK_F)
+		{
+			c.attaque_coup_pied = false;
 		}
 	}
 	
