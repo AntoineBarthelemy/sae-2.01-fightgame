@@ -10,10 +10,8 @@
  /* ========================================================== */
 package miscellaneous;
 
-import controle.AfficheControle;
-import controle.Controle;
 import controle.ControleurClavier;
-import static controle.ControleurClavier.fin;
+
 import java.awt.event.KeyEvent;
 
 /**
@@ -33,12 +31,12 @@ public class ControleurClavier2 extends ControleurClavier{
     @Override
 	public void keyPressed(KeyEvent e) {
 		//touche gauche
-		if (e.getKeyCode()==KeyEvent.VK_A)
+		if (e.getKeyCode()==KeyEvent.VK_Q)
 		{
 			c.gauche=true;			
 		}
 		//touche droite
-		if (e.getKeyCode()==KeyEvent.VK_E)
+		if (e.getKeyCode()==KeyEvent.VK_D)
 		{
 			c.droite=true;
 		}
@@ -53,28 +51,33 @@ public class ControleurClavier2 extends ControleurClavier{
 			c.bas=true;
 		}		
 		//touche up
-		if (e.getKeyCode()==KeyEvent.VK_Q)
+		if (e.getKeyCode()==KeyEvent.VK_1)
 		{
 			fin=true;
 		}
 
 		// attaque
 		if (e.getKeyCode()==KeyEvent.VK_T){
-			c.attaque = true;
+			c.attaque_coup_poing = true;
 
 
+		}
+
+		if(e.getKeyCode()==KeyEvent.VK_R)
+		{
+			c.position_defense = true;
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		//touche gauche
-		if (e.getKeyCode()==KeyEvent.VK_A)
+		if (e.getKeyCode()==KeyEvent.VK_Q)
 		{
 			c.gauche=false;
 		}
 		//touche droite
-		if (e.getKeyCode()==KeyEvent.VK_E)
+		if (e.getKeyCode()==KeyEvent.VK_D)
 		{
 			c.droite=false;
 		}
@@ -89,7 +92,12 @@ public class ControleurClavier2 extends ControleurClavier{
 			c.bas=false;
 		}
 
-		if (e.getKeyCode()==KeyEvent.VK_T) c.attaque = false;
+		if (e.getKeyCode()==KeyEvent.VK_T) c.attaque_coup_poing = false;
+
+		if(e.getKeyCode()==KeyEvent.VK_R)
+		{
+			c.position_defense = false;
+		}
 	}
 	
 }

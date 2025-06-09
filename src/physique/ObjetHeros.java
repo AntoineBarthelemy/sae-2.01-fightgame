@@ -91,7 +91,7 @@ public class ObjetHeros extends Objet{
 		sprites.affiche(tab[0],tab[1],g);
 		sprites.anime();
 
-		if(c.attaque)
+		if(c.attaque_coup_poing)
 		{
 			((SpritesHeros)sprites).afficherAttaque(g, tab[0], tab[1], tab[2], tab[3]);
 		}
