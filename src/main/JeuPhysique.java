@@ -31,7 +31,7 @@ public class JeuPhysique{
 	int i=0;
 	
 	//separation vue affichage
-	public JeuPhysique() throws IOException
+	public JeuPhysique()
 	{
 		//on creer le moteur physique
 		//moteurPhys=new MoteurPhysique();
@@ -41,8 +41,7 @@ public class JeuPhysique{
 	}
 	
 	
-	public void update()
-	{
+	public void update() throws InterruptedException {
 		moteurPhys.update();
 	}
 	

@@ -48,7 +48,7 @@ public class MoteurPhysique {
     /**
      *
      */
-	public void update() {
+	public void update(){
 
 
 

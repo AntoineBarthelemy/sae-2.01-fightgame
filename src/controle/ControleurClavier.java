@@ -94,7 +94,8 @@ public class ControleurClavier implements KeyListener{
 		if (e.getKeyCode()==KeyEvent.VK_NUMPAD0) {
 			c.attaque_coup_poing = true;
 
-			
+
+
 		};
 
 		if(e.getKeyCode()==KeyEvent.VK_NUMPAD1)

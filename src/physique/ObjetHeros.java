@@ -29,7 +29,7 @@ import afficheur.SpritesHeros;
  */
 public class ObjetHeros extends Objet{
 
-	private int pv = 100;
+	private int pv = 8000;
 
 
 	//distributeur de sprite
@@ -117,6 +117,7 @@ public class ObjetHeros extends Objet{
 		this.pv -= degats;
 		if(this.pv <= 0) this.pv = 0;
 
+
 	}
 
 	public void evolue(ObjetHeros m, ObjetHeros l)
@@ -124,12 +125,14 @@ public class ObjetHeros extends Objet{
 		if (Collision.collision(m, l) && m.c.attaque_coup_poing && !l.c.position_defense)
 		{
 			l.retirerPv(10);
+			System.out.println("Pv de Ryu :" + l.getPv());
 
 		}
 
 		if(Collision.collision(m, l) && l.c.attaque_coup_poing && !m.c.position_defense)
 		{
 			m.retirerPv(10);
+			System.out.println("Pv de Ken :" + m.getPv());
 
 		}
 	}
