@@ -28,6 +28,8 @@ import physique.ObjetMonstre;
 public class MoteurPourDeux extends MoteurPhysique{
     
     public MondePourDeux monde;
+	public int current_wall_index=0;
+
     
     public MoteurPourDeux() {
 	
@@ -119,7 +121,8 @@ public class MoteurPourDeux extends MoteurPhysique{
 		// mise a jour de la balle
 		hero.update();
 
-		// test de collision pour chaque mur
+
+				// test de collision pour chaque mur
 		for (Objet obj : monde.objets) {
 
 			if (Collision.collision(hero, obj)) {
@@ -157,7 +160,7 @@ public class MoteurPourDeux extends MoteurPhysique{
 					hero.vx = -hero.vx;
 				}   
                                 current_wall_index=obj.index;
-			} 
+			}
                                               
 		}
                 // Assign the last collision type if not a monster
@@ -176,6 +179,8 @@ public class MoteurPourDeux extends MoteurPhysique{
 				current_wall_index=hero.index;
 			}
 		}
+
+
 
 	}
 }
