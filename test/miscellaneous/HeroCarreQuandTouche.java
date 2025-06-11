@@ -72,8 +72,7 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 		debutAttaquePied = System.currentTimeMillis();
 		((SpritesHeros) sprites).resetAttaquePied();
 		changeEtape("attaque-pied");
-		System.out.println("Coup de pied déclenché !");
-		System.out.println("🔥 Coup de pied activé ! État de enAttaquePied : " + enAttaquePied);
+
 	}
 
 	private int num = 0;

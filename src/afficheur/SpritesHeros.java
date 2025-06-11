@@ -72,11 +72,11 @@ public class SpritesHeros extends Sprites {
 		try {
 			for (int i = 0; i < 2; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
 				spritesAttaquePied[i] = ImageIO.read(new File(dossier + "/attaque-pied" + (i + 1) + ".png"));
-				System.out.println("Chargement du sprite : attaque-pied" + (i + 1) + ".png → " + spritesAttaquePied[i]);
+
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("Erreur lors du chargement des sprites attaque-pied !");
+
 		}
 	}
 
@@ -148,7 +148,7 @@ public class SpritesHeros extends Sprites {
 			g2d.drawImage(imageAttaque, x, y, w, h, null);
 		}
 
-		System.out.println("✅ Coup de pied affiché ! Frame : " + frameAttaquePied);
+
 	}
 
 	public void resetAttaque() {

@@ -14,7 +14,7 @@ package controle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import miscellaneous.HeroCarreQuandTouche;
+
 import physique.ObjetHeros;
 
 //permet de faire un controleur de clavier
@@ -101,11 +101,8 @@ public class ControleurClavier implements KeyListener {
 
 		if (e.getKeyCode() == KeyEvent.VK_NUMPAD1) {
 			c.attaque_coup_pied = true;
-			System.out.println("🎮 Vérification du héros : " + heros);
-			if (heros instanceof HeroCarreQuandTouche) {
-				((HeroCarreQuandTouche) heros).declencherAttaquePied();
-			}
-			System.out.println("🔥 Appel de declencherAttaquePied() !");
+
+
 		}
 
 		// Defense
