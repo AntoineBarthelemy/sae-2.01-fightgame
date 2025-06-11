@@ -66,7 +66,7 @@ public class testFighter {
                         cClavier1.setHeros(monMonde.heros.get(0));
                 }
                 monMonde.heros.get(0).sprites = new SpritesHeros(monMonde.heros.get(0), "sprites/Ken");
-                System.out.println("⚡ Contrôleur du héros 1 : " + monMonde.heros.get(0).c);
+
                 cClavier1.setHeros(monMonde.heros.get(0)); // ✅ Associe le héros au contrôleur
                 
 

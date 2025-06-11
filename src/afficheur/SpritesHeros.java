@@ -65,7 +65,8 @@ public class SpritesHeros extends Sprites {
 	private int frameAttaquePied = 0;
 
 	private void chargerAttaquePied(String dossier) {
-		System.out.println("Exécution de chargerAttaquePied() !");
+
+
 
 		spritesAttaquePied = new BufferedImage[2]; // ✅ Modifie pour correspondre au nombre d’images disponibles
 
@@ -175,6 +176,8 @@ public class SpritesHeros extends Sprites {
 		// image par défaut
 		imageFile = dossierSprites + "/attaque-poing1.png";
 		im = ImageIO.read(new File(imageFile));
+
+
 
 		activite = "fixe";
 		sprites = new HashMap<String, Sprite>();
