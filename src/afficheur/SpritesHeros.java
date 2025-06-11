@@ -33,7 +33,8 @@ import java.awt.Graphics2D;
  */
 public class SpritesHeros extends Sprites {
 
-	ObjetHeros heros;
+	private ObjetHeros heros;
+
 	String imageFile = "sprites/Ken/attaque-poing1.png";
 
 	// constructeur de table de sprites
@@ -64,22 +65,20 @@ public class SpritesHeros extends Sprites {
 	private int frameAttaquePied = 0;
 
 	private void chargerAttaquePied(String dossier) {
-    System.out.println("Exécution de chargerAttaquePied() !");
-    
-    spritesAttaquePied = new BufferedImage[2]; // ✅ Modifie pour correspondre au nombre d’images disponibles
+		System.out.println("Exécution de chargerAttaquePied() !");
 
-    try {
-        for (int i = 0; i < 2; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
-            spritesAttaquePied[i] = ImageIO.read(new File(dossier + "/attaque-pied" + (i + 1) + ".png"));
-            System.out.println("Chargement du sprite : attaque-pied" + (i + 1) + ".png → " + spritesAttaquePied[i]);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-        System.out.println("Erreur lors du chargement des sprites attaque-pied !");
-    }
-}
+		spritesAttaquePied = new BufferedImage[2]; // ✅ Modifie pour correspondre au nombre d’images disponibles
 
-
+		try {
+			for (int i = 0; i < 2; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
+				spritesAttaquePied[i] = ImageIO.read(new File(dossier + "/attaque-pied" + (i + 1) + ".png"));
+				System.out.println("Chargement du sprite : attaque-pied" + (i + 1) + ".png → " + spritesAttaquePied[i]);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Erreur lors du chargement des sprites attaque-pied !");
+		}
+	}
 
 	private long dernierChangement = 0;
 	private final int intervalleFrame = 60;
@@ -105,26 +104,51 @@ public class SpritesHeros extends Sprites {
 	}
 
 	private long dernierChangementPied = 0;
-	private int framePied = 60;
+	private final int intervalleFramePied = 60;
 
 	public void afficherAttaquePied(Graphics g, int x, int y, int w, int h) {
-		if (spritesAttaquePied != null && spritesAttaquePied.length > 0) {
-			long maintenantPied = System.currentTimeMillis();
-
-			if (maintenantPied - dernierChangementPied >= framePied) {
-				frameAttaquePied = (frameAttaquePied + 1) % spritesAttaquePied.length;
-				dernierChangementPied = maintenantPied;
-			}
-
-			// Cast explicitement Graphics en Graphics2D
-			Graphics2D g2d = (Graphics2D) g;
-
-			if (heros.vx < 0) { // Si le personnage se déplace vers la gauche
-				g2d.drawImage(spritesAttaquePied[frameAttaquePied], x + w, y, -w, h, null);
-			} else { // Déplacement normal à droite
-				g2d.drawImage(spritesAttaquePied[frameAttaquePied], x, y, w, h, null);
-			}
+		if (spritesAttaquePied == null || spritesAttaquePied.length == 0) {
+			System.out.println("❌ Erreur : Aucun sprite de coup de pied chargé !");
+			return;
 		}
+
+		long maintenantPied = System.currentTimeMillis();
+
+		// ✅ Mise à jour de la frame uniquement si le temps est écoulé
+		if (maintenantPied - dernierChangementPied >= intervalleFramePied) {
+			frameAttaquePied = (frameAttaquePied + 1) % spritesAttaquePied.length;
+			dernierChangementPied = maintenantPied;
+		}
+
+		// ✅ Vérification que le héros existe avant d'accéder à `vx`
+		if (heros == null) {
+			System.out.println("❌ Erreur : Héros introuvable !");
+			return;
+		}
+
+		// ✅ Vérification que le Graphics n’est pas null
+		if (g == null) {
+			System.out.println("❌ Erreur : Graphics est null !");
+			return;
+		}
+
+		Graphics2D g2d = (Graphics2D) g;
+
+		// ✅ Affichage avec test de direction
+		BufferedImage imageAttaque = spritesAttaquePied[frameAttaquePied];
+
+		if (imageAttaque == null) {
+			System.out.println("❌ Erreur : Frame d’attaque de pied invalide !");
+			return;
+		}
+
+		if (heros.vx < 0) { // Si le personnage se déplace vers la gauche
+			g2d.drawImage(imageAttaque, x + w, y, -w, h, null);
+		} else { // Déplacement normal à droite
+			g2d.drawImage(imageAttaque, x, y, w, h, null);
+		}
+
+		System.out.println("✅ Coup de pied affiché ! Frame : " + frameAttaquePied);
 	}
 
 	public void resetAttaque() {
@@ -133,7 +157,7 @@ public class SpritesHeros extends Sprites {
 	}
 
 	public void resetAttaquePied() {
-		framePied = 0;
+		frameAttaquePied = 0;
 		dernierChangementPied = System.currentTimeMillis();
 	}
 
@@ -224,7 +248,6 @@ public class SpritesHeros extends Sprites {
 			num++;
 		}
 
-				
 		if (activite.equals("attaque-pied")) {
 			num++;
 		}
