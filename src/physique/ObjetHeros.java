@@ -93,6 +93,10 @@ public class ObjetHeros extends Objet {
 			((SpritesHeros) sprites).afficherAttaque(g, tab[0], tab[1], tab[2], tab[3]);
 		}
 
+		if (c.attaque_coup_pied) {
+			((SpritesHeros) sprites).afficherAttaquePied(g, tab[0], tab[1], tab[2], tab[3]);
+		}
+
 		int maxPv = 8000;
 		int largeurBarre = 80;
 		int hauteurBarre = 10;

@@ -90,40 +90,4 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 		changeEtape("attaque-pied");
 	}
 
-	@Override
-	public void draw(Graphics g) {
-		g.setColor(Color.black);
-		int[] tab = Repere.changeRepere(this);
-
-		// Gestion du coup de poing
-		if (enAttaque) {
-			long tempsEcoule = System.currentTimeMillis() - debutAttaque;
-			if (tempsEcoule < dureeAttaque) {
-				num++;
-				((SpritesHeros) sprites).afficherAttaque(g, tab[0], tab[1], tab[2], tab[3]);
-			} else {
-				enAttaque = false;
-				num = 0;
-			}
-		}
-
-		// Gestion du coup de pied
-		else if (enAttaquePied) {
-			long tempsEcoule = System.currentTimeMillis() - debutAttaquePied;
-			System.out.println("🦵 Affichage coup de pied, temps écoulé : " + tempsEcoule);
-
-			if (tempsEcoule < dureeAttaque) {
-				((SpritesHeros) sprites).afficherAttaquePied(g, tab[0], tab[1], tab[2], tab[3]);
-			} else {
-				enAttaquePied = false;
-			}
-		}
-
-		// Animation normale quand il n'attaque pas
-		else {
-			sprites.affiche(tab[0], tab[1], g);
-			sprites.anime();
-		}
-	}
-
 }
