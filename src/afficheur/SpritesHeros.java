@@ -50,15 +50,35 @@ public class SpritesHeros extends Sprites {
 
 	// Dans le constructeur ou une méthode appelée à l'initialisation
 	private void chargerAttaque(String dossier) {
-	spritesAttaque = new BufferedImage[4];
-	try {
-		for (int i = 0; i < 4; i++) {
-			spritesAttaque[i] = ImageIO.read(new File(dossier + "/attaque-poing" + (i + 1) + ".png"));
+		spritesAttaque = new BufferedImage[4];
+		try {
+			for (int i = 0; i < 4; i++) {
+				spritesAttaque[i] = ImageIO.read(new File(dossier + "/attaque-poing" + (i + 1) + ".png"));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	} catch (IOException e) {
-		e.printStackTrace();
 	}
+
+	private BufferedImage[] spritesAttaquePied;
+	private int frameAttaquePied = 0;
+
+	private void chargerAttaquePied(String dossier) {
+    System.out.println("Exécution de chargerAttaquePied() !");
+    
+    spritesAttaquePied = new BufferedImage[2]; // ✅ Modifie pour correspondre au nombre d’images disponibles
+
+    try {
+        for (int i = 0; i < 2; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
+            spritesAttaquePied[i] = ImageIO.read(new File(dossier + "/attaque-pied" + (i + 1) + ".png"));
+            System.out.println("Chargement du sprite : attaque-pied" + (i + 1) + ".png → " + spritesAttaquePied[i]);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+        System.out.println("Erreur lors du chargement des sprites attaque-pied !");
+    }
 }
+
 
 
 	private long dernierChangement = 0;
@@ -84,9 +104,37 @@ public class SpritesHeros extends Sprites {
 		}
 	}
 
+	private long dernierChangementPied = 0;
+	private int framePied = 60;
+
+	public void afficherAttaquePied(Graphics g, int x, int y, int w, int h) {
+		if (spritesAttaquePied != null && spritesAttaquePied.length > 0) {
+			long maintenantPied = System.currentTimeMillis();
+
+			if (maintenantPied - dernierChangementPied >= framePied) {
+				frameAttaquePied = (frameAttaquePied + 1) % spritesAttaquePied.length;
+				dernierChangementPied = maintenantPied;
+			}
+
+			// Cast explicitement Graphics en Graphics2D
+			Graphics2D g2d = (Graphics2D) g;
+
+			if (heros.vx < 0) { // Si le personnage se déplace vers la gauche
+				g2d.drawImage(spritesAttaquePied[frameAttaquePied], x + w, y, -w, h, null);
+			} else { // Déplacement normal à droite
+				g2d.drawImage(spritesAttaquePied[frameAttaquePied], x, y, w, h, null);
+			}
+		}
+	}
+
 	public void resetAttaque() {
 		frameAttaque = 0;
 		dernierChangement = System.currentTimeMillis();
+	}
+
+	public void resetAttaquePied() {
+		framePied = 0;
+		dernierChangementPied = System.currentTimeMillis();
 	}
 
 	// Ancien constructeur par défaut
@@ -96,20 +144,21 @@ public class SpritesHeros extends Sprites {
 
 	private String dossierSprites;
 
-// Nouveau avec chemin personnalisable
-public SpritesHeros(ObjetHeros b, String dossierSprites) throws IOException {
-	this.heros = b;
+	// Nouveau avec chemin personnalisable
+	public SpritesHeros(ObjetHeros b, String dossierSprites) throws IOException {
+		this.heros = b;
 
-	// image par défaut
-	imageFile = dossierSprites + "/attaque-poing1.png";
-	im = ImageIO.read(new File(imageFile));
+		// image par défaut
+		imageFile = dossierSprites + "/attaque-poing1.png";
+		im = ImageIO.read(new File(imageFile));
 
-	activite = "fixe";
-	sprites = new HashMap<String, Sprite>();
-	sprites.put("fixe", new Sprite(0, 0, im.getWidth(), im.getHeight()));
+		activite = "fixe";
+		sprites = new HashMap<String, Sprite>();
+		sprites.put("fixe", new Sprite(0, 0, im.getWidth(), im.getHeight()));
 
-	chargerAttaque(dossierSprites);
-}
+		chargerAttaque(dossierSprites);
+		chargerAttaquePied(dossierSprites);
+	}
 
 	// afficheur de sprite
 	public void affiche(int x, int y, Graphics g) {
@@ -133,6 +182,11 @@ public SpritesHeros(ObjetHeros b, String dossierSprites) throws IOException {
 	}
 
 	public void changeEtape(String nouvelleActivite) {
+		activite = nouvelleActivite;
+		num = 0; // Réinitialisation de l'étape d'animation
+	}
+
+	public void changeEtapePied(String nouvelleActivite) {
 		activite = nouvelleActivite;
 		num = 0; // Réinitialisation de l'étape d'animation
 	}
@@ -167,6 +221,11 @@ public SpritesHeros(ObjetHeros b, String dossierSprites) throws IOException {
 		}
 
 		if (activite.equals("attaque")) {
+			num++;
+		}
+
+				
+		if (activite.equals("attaque-pied")) {
 			num++;
 		}
 

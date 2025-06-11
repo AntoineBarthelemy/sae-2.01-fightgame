@@ -31,12 +31,14 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 	 */
 
 	private boolean enAttaque = false;
+	private boolean enAttaquePied = false;
 	private long debutAttaque = 0;
+	private long debutAttaquePied = 0;
 	private final int dureeAttaque = 200; // en millisecondes
 
 	public HeroCarreQuandTouche() throws IOException {
 
-		sprites = new SpritesHeros(this, "sprites/Ken"); 
+		sprites = new SpritesHeros(this, "sprites/Ken");
 		height = sprites.sprites.get("fixe").ty;
 		width = sprites.sprites.get("fixe").tx;
 		vx = 1;
@@ -45,10 +47,16 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 		ay = -0.04;
 	}
 
-
 	public void changeEtape(String nouvelleActivite) {
 		enAttaque = nouvelleActivite.equals("attaque");
 		debutAttaque = System.currentTimeMillis(); // Démarre l'attaque si activée
+		enAttaquePied = nouvelleActivite.equals("attaque-pied");
+		debutAttaquePied = System.currentTimeMillis();
+	}
+
+	public void changeEtapePied(String nouvelleActivite) {
+		enAttaquePied = nouvelleActivite.equals("attaque-pied");
+		debutAttaquePied = System.currentTimeMillis();
 	}
 
 	public void declencherAttaque() {
@@ -56,6 +64,14 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 		debutAttaque = System.currentTimeMillis();
 		((SpritesHeros) sprites).resetAttaque();
 		changeEtape("attaque");
+
+	}
+
+	public void declencherAttaquePied() {
+		enAttaquePied = true;
+		debutAttaquePied = System.currentTimeMillis();
+		((SpritesHeros) sprites).resetAttaquePied();
+		changeEtape("attaque-pied");
 	}
 
 	private int num = 0;
@@ -65,11 +81,19 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 		changeEtape("attaque");
 	}
 
+	public void attaquerPied() {
+		enAttaquePied = true;
+		debutAttaquePied = System.currentTimeMillis();
+		((SpritesHeros) sprites).resetAttaquePied();
+		changeEtape("attaque-pied");
+	}
+
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(Color.black);
 		int[] tab = Repere.changeRepere(this);
 
+		// Gestion du coup de poing
 		if (enAttaque) {
 			long tempsEcoule = System.currentTimeMillis() - debutAttaque;
 			if (tempsEcoule < dureeAttaque) {
@@ -79,7 +103,22 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 				enAttaque = false;
 				num = 0;
 			}
-		} else {
+		}
+
+		// Gestion du coup de pied
+		else if (enAttaquePied) {
+			long tempsEcoule = System.currentTimeMillis() - debutAttaquePied;
+			if (tempsEcoule < dureeAttaque) {
+				num++;
+				((SpritesHeros) sprites).afficherAttaquePied(g, tab[0], tab[1], tab[2], tab[3]);
+			} else {
+				enAttaquePied = false;
+				num = 0;
+			}
+		}
+
+		// Animation normale quand il n'attaque pas
+		else {
 			sprites.affiche(tab[0], tab[1], g);
 			sprites.anime();
 		}
