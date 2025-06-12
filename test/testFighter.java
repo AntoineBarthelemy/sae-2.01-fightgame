@@ -48,10 +48,10 @@ public class testFighter {
                 /////////////////////
 
                 // sol
-                monMonde.addMur(-200, -20, 1000, 20);
+                monMonde.addMur(-200, -60, 1000, 20);
 
                 monMonde.addMur(-20,00,20,1500);
-                monMonde.addMur(600,00,20,1500);
+                monMonde.addMur(630,00,20,1500);
                 
                 //////////////////////
                 // Hero 1

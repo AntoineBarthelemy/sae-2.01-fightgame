@@ -58,10 +58,10 @@ public class ObjetMur extends Objet {
     public void draw(Graphics g) {
 		if (collision==1)
 			g.setColor(Color.red);
-		else
-			g.setColor(Color.gray);
-		int[] tab =Repere.changeRepere(this);
-		g.fillRect(tab[0], tab[1], tab[2], tab[3]);
+		// else
+		// 	g.setColor(Color.gray);
+		// int[] tab =Repere.changeRepere(this);
+		// g.fillRect(tab[0], tab[1], tab[2], tab[3]);
 	}
 
 }
