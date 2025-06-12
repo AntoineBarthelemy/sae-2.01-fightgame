@@ -16,7 +16,8 @@ import java.awt.Graphics;
 import java.io.IOException;
 
 import controle.Controle;
-
+import controle.ControleurClavier;
+import afficheur.FinDePartieMenu;
 import afficheur.Repere;
 import afficheur.Sprites;
 import afficheur.SpritesHeros;
@@ -90,7 +91,7 @@ public class ObjetHeros extends Objet {
 		sprites.anime();
 
 		if (!c.attaque_coup_poing && !c.attaque_coup_pied && !c.position_defense) {
-			sprites.affiche(tab[0], tab[1], g); //Affiche le sprite normal SEULEMENT si pas d'attaque et pas de défense
+			sprites.affiche(tab[0], tab[1], g); // Affiche le sprite normal SEULEMENT si pas d'attaque et pas de défense
 		}
 
 		if (c.attaque_coup_poing) {
@@ -104,6 +105,22 @@ public class ObjetHeros extends Objet {
 
 		if (c.position_defense) {
 			((SpritesHeros) sprites).afficherDefense(g, tab[0], tab[1], tab[2], tab[3]);
+		}
+
+		if (pv <= 0) {
+			System.out.println("Un héros est KO, affichage du menu !");
+
+			FinDePartieMenu.afficherMenu(); // Affiche le menu d’abord !
+
+			try {
+				// Pause pour laisser le temps au menu de s'afficher avant la fermeture
+				Thread.sleep(20000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Ferme le jeu SEULEMENT après que le joueur ait choisi
+			ControleurClavier.fin = true;
 		}
 
 		int maxPv = 8000;
