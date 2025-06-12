@@ -86,11 +86,16 @@ public class ObjetHeros extends Objet {
 
 		// Change de repère
 		int[] tab = Repere.changeRepere(this);
-		sprites.affiche(tab[0], tab[1], g);
+		// sprites.affiche(tab[0], tab[1], g);
 		sprites.anime();
+
+		if (!c.attaque_coup_poing && !c.attaque_coup_pied) {
+			sprites.affiche(tab[0], tab[1], g); // ✅ Affiche le sprite normal SEULEMENT si pas d'attaque
+		}
 
 		if (c.attaque_coup_poing) {
 			((SpritesHeros) sprites).afficherAttaque(g, tab[0], tab[1], tab[2], tab[3]);
+
 		}
 
 		if (c.attaque_coup_pied) {
@@ -135,21 +140,16 @@ public class ObjetHeros extends Objet {
 		if (Collision.collision(m, l) && m.c.attaque_coup_poing && !l.c.position_defense) {
 			l.retirerPv(10);
 
-
-		} else if ((Collision.collision(m, l) && m.c.attaque_coup_pied && !l.c.position_defense))
-		{
+		} else if ((Collision.collision(m, l) && m.c.attaque_coup_pied && !l.c.position_defense)) {
 			l.retirerPv(20);
-
 
 		} else if (Collision.collision(m, l) && l.c.attaque_coup_poing && !m.c.position_defense) {
 			m.retirerPv(10);
 
-		} else if (Collision.collision(m, l) && l.c.attaque_coup_pied && !m.c.position_defense)
-		{
+		} else if (Collision.collision(m, l) && l.c.attaque_coup_pied && !m.c.position_defense) {
 			m.retirerPv(20);
 
 		}
-
 
 	}
 }
