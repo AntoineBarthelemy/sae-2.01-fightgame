@@ -35,14 +35,15 @@ Cependant, si vous envisagez d'utiliser, de modifier ou d'effectuer toute autre 
 
 ### Langages et Matériel
 
-Java
-Java Swing
+Java, Java Swing,
 Moteur de jeu Pierre Frédéric Villard
 
 ### Structuration du Développement
 
-Voir tableau envoyez par Antoine Discord
+Le projet a été réalisé par Antoine Barthélémy et Lucas Cesar. Nelson n’a pas pu participer en raison de problèmes de santé.
 
+- Antoine Barthélémy s’est occupé de la partie Back-End, incluant notamment la gestion des dégâts, des collisions et de la logique du jeu.
+- Lucas Cesar a pris en charge la partie Front-End, comprenant l’affichage des sprites, le fond d’écran et les éléments visuels.
 ### Graphiques et Bande sonore
 
 Sprite
