@@ -105,11 +105,10 @@ public class SpritesHeros extends Sprites {
 	}
 
 	private long dernierChangementPied = 0;
-	private final int intervalleFramePied = 60;
+	private final int intervalleFramePied = 100;
 
 	public void afficherAttaquePied(Graphics g, int x, int y, int w, int h) {
 		if (spritesAttaquePied == null || spritesAttaquePied.length == 0) {
-			System.out.println("❌ Erreur : Aucun sprite de coup de pied chargé !");
 			return;
 		}
 
@@ -123,13 +122,13 @@ public class SpritesHeros extends Sprites {
 
 		// ✅ Vérification que le héros existe avant d'accéder à `vx`
 		if (heros == null) {
-			System.out.println("❌ Erreur : Héros introuvable !");
+			System.out.println("Erreur : Héros introuvable !");
 			return;
 		}
 
 		// ✅ Vérification que le Graphics n’est pas null
 		if (g == null) {
-			System.out.println("❌ Erreur : Graphics est null !");
+			System.out.println("Erreur : Graphics est null !");
 			return;
 		}
 
@@ -139,7 +138,7 @@ public class SpritesHeros extends Sprites {
 		BufferedImage imageAttaque = spritesAttaquePied[frameAttaquePied];
 
 		if (imageAttaque == null) {
-			System.out.println("❌ Erreur : Frame d’attaque de pied invalide !");
+			System.out.println("Erreur : Frame d’attaque de pied invalide !");
 			return;
 		}
 

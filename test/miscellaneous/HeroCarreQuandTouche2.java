@@ -10,7 +10,10 @@ import physique.ObjetHeros;
 public class HeroCarreQuandTouche2 extends ObjetHeros {
 
     private boolean enAttaque = false;
+    private boolean enAttaquePied = false;
     private long debutAttaque = 0;
+    private long debutAttaquePied = 0;
+
     private final int dureeAttaque = 200;
 
     public HeroCarreQuandTouche2() throws IOException {
@@ -29,11 +32,24 @@ public class HeroCarreQuandTouche2 extends ObjetHeros {
         debutAttaque = System.currentTimeMillis();
     }
 
+    public void changeEtapePied(String nouvelleActivite) {
+        enAttaquePied = nouvelleActivite.equals("attaque-pied");
+        debutAttaquePied = System.currentTimeMillis();
+    }
+
     public void declencherAttaque() {
         enAttaque = true;
         debutAttaque = System.currentTimeMillis();
         ((SpritesHeros) sprites).resetAttaque();
         changeEtape("attaque");
+    }
+
+    public void declencherAttaquePied() {
+        enAttaquePied = true;
+        debutAttaquePied = System.currentTimeMillis();
+        ((SpritesHeros) sprites).resetAttaquePied();
+        changeEtape("attaque-pied");
+
     }
 
     private int num = 0;
@@ -43,23 +59,11 @@ public class HeroCarreQuandTouche2 extends ObjetHeros {
         changeEtape("attaque");
     }
 
-    @Override
-    public void draw(Graphics g) {
-        g.setColor(Color.black);
-        int[] tab = Repere.changeRepere(this);
-
-        if (enAttaque) {
-            long tempsEcoule = System.currentTimeMillis() - debutAttaque;
-            if (tempsEcoule < dureeAttaque) {
-                num++;
-                ((SpritesHeros) sprites).afficherAttaque(g, tab[0], tab[1], tab[2], tab[3]);
-            } else {
-                enAttaque = false;
-                num = 0;
-            }
-        } else {
-            sprites.affiche(tab[0], tab[1], g);
-            sprites.anime();
-        }
+    public void attaquerPied() {
+        enAttaquePied = true;
+        debutAttaquePied = System.currentTimeMillis();
+        ((SpritesHeros) sprites).resetAttaquePied();
+        changeEtape("attaque-pied");
     }
+
 }

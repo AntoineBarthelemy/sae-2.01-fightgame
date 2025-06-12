@@ -58,6 +58,10 @@ public class testFighter {
                 /////////////////////
                 
                 
+                //////////////////////
+                // Hero 1
+                /////////////////////
+
                 monMonde.addHero(0, 0, 50, 20); // index 0
                 monMonde.heros.get(0).c = cClavier1.c;
 
@@ -72,13 +76,24 @@ public class testFighter {
 
 
 
+                //////////////////////
+                //Hero 2
+                /////////////////////
+
 
                 monMonde.addHero(0, 0, 500, 20);
                 monMonde.heros.get(1).c = cClavier2.c;
 
+                // On vérifie que c'est bien un HeroCarreQuandTouche
+                if (monMonde.heros.get(1) instanceof HeroCarreQuandTouche) {
+                        cClavier1.setHeros(monMonde.heros.get(1));
+                }
+
                 monMonde.heros.get(1).sprites = new SpritesHeros(monMonde.heros.get(1), "sprites/Ryu");
 
-                monMonde.heros.get(1).sprites.assignNewImage("sprites/Ryu/attaque-poing1.png");
+                cClavier2.setHeros(monMonde.heros.get(1));
+
+                // monMonde.heros.get(1).sprites.assignNewImage("sprites/Ryu/attaque-poing1.png");
 
                 // on creer le moteur physique
                 moteurPhys = new MoteurPourDeux();

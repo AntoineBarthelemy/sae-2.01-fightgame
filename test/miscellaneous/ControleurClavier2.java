@@ -11,6 +11,7 @@
 package miscellaneous;
 
 import controle.ControleurClavier;
+import physique.ObjetHeros;
 
 import java.awt.event.KeyEvent;
 
@@ -24,6 +25,11 @@ public class ControleurClavier2 extends ControleurClavier{
     public ControleurClavier2(boolean affiche) {
         super(affiche);
     }
+	private ObjetHeros heros;
+
+	public void setHeros(ObjetHeros heros) {
+		this.heros = heros;
+	}
 
     /**
      *
