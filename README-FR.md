@@ -14,6 +14,8 @@ Le but : réduire la barre de vie de l’adversaire à zéro pour gagner la part
 - Menu de fin de partie
 
 
+![Visuel de StreetFighterIUT](https://drive.google.com/file/d/1TUeJHuqK6PQJYSD5RNgCfuu7T2vxcDrr/view?usp=sharing)
+
 ## Liens utiles
 
 - Licence (version complète) : [English](LICENCE.md) • [Français](LICENCE-FR.md)
@@ -50,7 +52,16 @@ Le projet a été réalisé par Antoine Barthélémy et Lucas Cesar. Nelson n’
 Version1.0.0Alpha - A rendre le 12 Juin 2025 avant 18h
 
 ## Installation et Lancement
+Pour installer et lancer notre projet sur votre machine, vous devriez:
 
+1. Téléchargez le projet sur votre machine
+
+*Pour cela, rendez-vous sur la page principale de notre dépôt. 
+Cliquez sur le bouton vert "Code", puis copiez le lien en HTTPS.
+Une fois le lien obtenu, ouvrez un terminal et tapez `git clone <le_lien>`*
+
+2. Compiler notre projet
+3. L'éxécuter 
 
 
 ## Projet Collaboratif 
