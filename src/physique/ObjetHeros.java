@@ -89,8 +89,8 @@ public class ObjetHeros extends Objet {
 		// sprites.affiche(tab[0], tab[1], g);
 		sprites.anime();
 
-		if (!c.attaque_coup_poing && !c.attaque_coup_pied) {
-			sprites.affiche(tab[0], tab[1], g); // ✅ Affiche le sprite normal SEULEMENT si pas d'attaque
+		if (!c.attaque_coup_poing && !c.attaque_coup_pied && !c.position_defense) {
+			sprites.affiche(tab[0], tab[1], g); //Affiche le sprite normal SEULEMENT si pas d'attaque et pas de défense
 		}
 
 		if (c.attaque_coup_poing) {
@@ -100,6 +100,10 @@ public class ObjetHeros extends Objet {
 
 		if (c.attaque_coup_pied) {
 			((SpritesHeros) sprites).afficherAttaquePied(g, tab[0], tab[1], tab[2], tab[3]);
+		}
+
+		if (c.position_defense) {
+			((SpritesHeros) sprites).afficherDefense(g, tab[0], tab[1], tab[2], tab[3]);
 		}
 
 		int maxPv = 8000;

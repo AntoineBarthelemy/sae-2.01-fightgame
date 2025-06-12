@@ -81,6 +81,26 @@ public class SpritesHeros extends Sprites {
 		}
 	}
 
+	private BufferedImage[] spritesDefense;
+	private int frameDefense = 0;
+
+	private void chargerDefense(String dossier) {
+
+
+
+		spritesDefense = new BufferedImage[1]; // ✅ Modifie pour correspondre au nombre d’images disponibles
+
+		try {
+			for (int i = 0; i < 1; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
+				spritesDefense[i] = ImageIO.read(new File(dossier + "/defense" + (i + 1) + ".png"));
+
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+	}
+
 	private long dernierChangement = 0;
 	private final int intervalleFrame = 100;
 
@@ -114,33 +134,15 @@ public class SpritesHeros extends Sprites {
 
 		long maintenantPied = System.currentTimeMillis();
 
-		// ✅ Mise à jour de la frame uniquement si le temps est écoulé
+		//Mise à jour de la frame uniquement si le temps est écoulé
 		if (maintenantPied - dernierChangementPied >= intervalleFramePied) {
 			frameAttaquePied = (frameAttaquePied + 1) % spritesAttaquePied.length;
 			dernierChangementPied = maintenantPied;
 		}
 
-		// ✅ Vérification que le héros existe avant d'accéder à `vx`
-		if (heros == null) {
-			System.out.println("Erreur : Héros introuvable !");
-			return;
-		}
-
-		// ✅ Vérification que le Graphics n’est pas null
-		if (g == null) {
-			System.out.println("Erreur : Graphics est null !");
-			return;
-		}
-
 		Graphics2D g2d = (Graphics2D) g;
 
-		// ✅ Affichage avec test de direction
 		BufferedImage imageAttaque = spritesAttaquePied[frameAttaquePied];
-
-		if (imageAttaque == null) {
-			System.out.println("Erreur : Frame d’attaque de pied invalide !");
-			return;
-		}
 
 		if (heros.vx < 0) { // Si le personnage se déplace vers la gauche
 			g2d.drawImage(imageAttaque, x + w, y, -w, h, null);
@@ -151,6 +153,45 @@ public class SpritesHeros extends Sprites {
 
 	}
 
+	private long dernierChangementDefense = 0;
+	private final int intervalleFrameDefense = 100;
+
+	public void afficherDefense(Graphics g, int x, int y, int w, int h) {
+		if (spritesDefense != null && spritesDefense.length > 0) {
+			long maintenantDefense = System.currentTimeMillis();
+
+			if (maintenantDefense - dernierChangementDefense >= intervalleFrameDefense) {
+				frameDefense = (frameDefense + 1) % spritesDefense.length;
+				dernierChangementDefense = maintenantDefense;
+			}
+
+			// Cast explicitement Graphics en Graphics2D
+			Graphics2D g2d = (Graphics2D) g;
+
+			if (heros.vx < 0) { // Si le personnage se déplace vers la gauche
+				g2d.drawImage(spritesDefense[frameDefense], x + w, y, -w, h, null);
+			} else { // Déplacement normal à droite
+				g2d.drawImage(spritesDefense[frameDefense], x, y, w, h, null);
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public void resetAttaque() {
 		frameAttaque = 0;
 		dernierChangement = System.currentTimeMillis();
@@ -159,6 +200,11 @@ public class SpritesHeros extends Sprites {
 	public void resetAttaquePied() {
 		frameAttaquePied = 0;
 		dernierChangementPied = System.currentTimeMillis();
+	}
+
+	public void resetDefense() {
+		frameDefense = 0;
+		dernierChangementDefense = System.currentTimeMillis();
 	}
 
 	// Ancien constructeur par défaut
@@ -184,11 +230,11 @@ public class SpritesHeros extends Sprites {
 
 		chargerAttaque(dossierSprites);
 		chargerAttaquePied(dossierSprites);
+		chargerDefense(dossierSprites);
 	}
 
 	// afficheur de sprite
 	public void affiche(int x, int y, Graphics g) {
-		// Sprite s = sprites.get(chaine());
 		Sprite s = sprites.get("fixe");
 		if (s == null)
 			s = sprites.get("erreur");
@@ -214,7 +260,12 @@ public class SpritesHeros extends Sprites {
 
 	public void changeEtapePied(String nouvelleActivite) {
 		activite = nouvelleActivite;
-		num = 0; // Réinitialisation de l'étape d'animation
+		num = 0;
+	}
+
+	public void changeEtapeDefense(String nouvelleActivite) {
+		activite = nouvelleActivite;
+		num = 0;
 	}
 
 	public String chaine() {
@@ -254,6 +305,9 @@ public class SpritesHeros extends Sprites {
 			num++;
 		}
 
+		if (activite.equals("position_defense")) {
+			num++;
+		}
 	}
 
 }
