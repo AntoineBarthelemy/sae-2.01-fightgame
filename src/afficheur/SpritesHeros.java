@@ -82,7 +82,7 @@ public class SpritesHeros extends Sprites {
 	}
 
 	private long dernierChangement = 0;
-	private final int intervalleFrame = 60;
+	private final int intervalleFrame = 100;
 
 	public void afficherAttaque(Graphics g, int x, int y, int w, int h) {
 		if (spritesAttaque != null && spritesAttaque.length > 0) {
@@ -105,7 +105,7 @@ public class SpritesHeros extends Sprites {
 	}
 
 	private long dernierChangementPied = 0;
-	private final int intervalleFramePied = 100;
+	private final int intervalleFramePied = 130;
 
 	public void afficherAttaquePied(Graphics g, int x, int y, int w, int h) {
 		if (spritesAttaquePied == null || spritesAttaquePied.length == 0) {
