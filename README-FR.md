@@ -1,14 +1,17 @@
 # StreetFighterIUT • SAE 2.01 - BUT1 S2
 
-StreetFighterIUT est un jeu de combat réalisé dans le cadre d'un projet en étude supérieur, en équipe de 2. Ce jeu se joue à 2 joueur uniquement et permet de se battre avec des capacité tel que des des coup de poing, des coups de pieds et de sé défendre. Le but, réduire la barre de vie de l'adversaire à 0 pour gagner la partie.
+StreetFighterIUT est un jeu de combat réalisé dans le cadre d’un projet en études supérieures, en équipe de deux.
+Ce jeu se joue à deux joueurs uniquement et permet de se battre avec des capacités telles que des coups de poing, des coups de pied et la possibilité de se défendre.
+Le but : réduire la barre de vie de l’adversaire à zéro pour gagner la partie.
 
-- 2 Joueurs
-- Joueurs dirigeable
-- Coup de poing
-- Coup de pied
+- 2 joueurs
+- Joueurs dirigeables
+- Coups de poing
+- Coups de pied
 - Défense
-- Environnement entrainant
-- Animation
+- Environnement entraînant
+- Animations
+- Menu de fin de partie
 
 
 ## Liens utiles
