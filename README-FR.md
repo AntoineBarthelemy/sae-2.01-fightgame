@@ -4,12 +4,12 @@ StreetFighterIUT est un jeu de combat réalisé dans le cadre d'un projet en ét
 
 - 2 Joueurs
 - Joueurs dirigeable
-- Attaque et Défense
-- Transformation
-- Choisir son personnage
-- Stamina
+- Coup de poing
+- Coup de pied
+- Défense
+- Environnement entrainant
 - Animation
-- Capacitée 
+
 
 ## Liens utiles
 
