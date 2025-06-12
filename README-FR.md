@@ -1,6 +1,6 @@
 # StreetFighterIUT • SAE 2.01 - BUT1 S2
 
-StreetFighterIUT est un jeu de combat réalisé dans le cadre d'un projet en étude supérieur, en équipe de 3. Ce jeu se joue à 2 joueur uniquement et permet de se battre avec des capacité tel que des des coup de pieds ou des attaques spéciale, de sé défendre ou même d'effectuer des transformation. Le but, réduire la barre de vie de l'adversaire à 0 pour gagner la partie.
+StreetFighterIUT est un jeu de combat réalisé dans le cadre d'un projet en étude supérieur, en équipe de 2. Ce jeu se joue à 2 joueur uniquement et permet de se battre avec des capacité tel que des des coup de poing, des coups de pieds et de sé défendre. Le but, réduire la barre de vie de l'adversaire à 0 pour gagner la partie.
 
 - 2 Joueurs
 - Joueurs dirigeable
@@ -15,10 +15,8 @@ StreetFighterIUT est un jeu de combat réalisé dans le cadre d'un projet en ét
 
 - Licence (version complète) : [English](LICENCE.md) • [Français](LICENCE-FR.md)
 - Licence (version simplifié) : [English](LICENCE-SIMPLIFIE.md) • [Français](LICENCE-SIMPLIFIE-FR.md)
-- [Projet GitHub](https://github.com/NelsonWithStarCoffee/SAE-Programmation-S2/)
-- [Wiki du Projet](https://github.com/NelsonWithStarCoffee/SAE-Programmation-S2/wiki/)
-- [Fandom du Projet](https://www.google.com/)
-- [Site Web](https://www.google.com/)
+- [Projet version GitHub](https://github.com/AntoineBarthelemy/sae-2.01-fightgame/)
+
 
 ## Avis Important
 
