@@ -22,7 +22,7 @@ public class DecorVariable {
 	public DecorVariable() 
 	{
 		try {
-			im=ImageIO.read(new File("background.jpg"));
+			im=ImageIO.read(new File("background-Japon.jpg"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -110,7 +110,7 @@ public class ObjetHeros extends Objet {
 		if (pv <= 0) {
 			System.out.println("Un héros est KO, affichage du menu !");
 
-			FinDePartieMenu.afficherMenu(); // Affiche le menu d’abord !
+			FinDePartieMenu.afficherMenu(); // Affiche le menu avant fin de partie
 
 			try {
 				// Pause pour laisser le temps au menu de s'afficher avant la fermeture

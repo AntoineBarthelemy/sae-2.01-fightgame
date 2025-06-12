@@ -52,11 +52,6 @@ public class testFighter {
 
                 monMonde.addMur(-20,00,20,1500);
                 monMonde.addMur(600,00,20,1500);
-
-                //////////////////////
-                // Le Hero
-                /////////////////////
-                
                 
                 //////////////////////
                 // Hero 1
@@ -69,17 +64,14 @@ public class testFighter {
                 if (monMonde.heros.get(0) instanceof HeroCarreQuandTouche) {
                         cClavier1.setHeros(monMonde.heros.get(0));
                 }
+
                 monMonde.heros.get(0).sprites = new SpritesHeros(monMonde.heros.get(0), "sprites/Ken");
 
                 cClavier1.setHeros(monMonde.heros.get(0)); // ✅ Associe le héros au contrôleur
                 
-
-
-
                 //////////////////////
                 //Hero 2
                 /////////////////////
-
 
                 monMonde.addHero(0, 0, 500, 20);
                 monMonde.heros.get(1).c = cClavier2.c;

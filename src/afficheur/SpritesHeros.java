@@ -68,10 +68,10 @@ public class SpritesHeros extends Sprites {
 
 
 
-		spritesAttaquePied = new BufferedImage[2]; // ✅ Modifie pour correspondre au nombre d’images disponibles
+		spritesAttaquePied = new BufferedImage[2]; 
 
 		try {
-			for (int i = 0; i < 2; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
+			for (int i = 0; i < 2; i++) { 
 				spritesAttaquePied[i] = ImageIO.read(new File(dossier + "/attaque-pied" + (i + 1) + ".png"));
 
 			}
@@ -88,10 +88,10 @@ public class SpritesHeros extends Sprites {
 
 
 
-		spritesDefense = new BufferedImage[1]; // ✅ Modifie pour correspondre au nombre d’images disponibles
+		spritesDefense = new BufferedImage[1]; 
 
 		try {
-			for (int i = 0; i < 1; i++) { // ✅ Change 4 en 2 si tu n’as que deux images
+			for (int i = 0; i < 1; i++) { 
 				spritesDefense[i] = ImageIO.read(new File(dossier + "/defense" + (i + 1) + ".png"));
 
 			}
@@ -165,12 +165,11 @@ public class SpritesHeros extends Sprites {
 				dernierChangementDefense = maintenantDefense;
 			}
 
-			// Cast explicitement Graphics en Graphics2D
 			Graphics2D g2d = (Graphics2D) g;
 
-			if (heros.vx < 0) { // Si le personnage se déplace vers la gauche
+			if (heros.vx < 0) { 
 				g2d.drawImage(spritesDefense[frameDefense], x + w, y, -w, h, null);
-			} else { // Déplacement normal à droite
+			} else { 
 				g2d.drawImage(spritesDefense[frameDefense], x, y, w, h, null);
 			}
 		}
@@ -198,7 +197,7 @@ public class SpritesHeros extends Sprites {
 
 	private String dossierSprites;
 
-	// Nouveau avec chemin personnalisable
+	// Nouveau contructeur avec chemin personnalisable
 	public SpritesHeros(ObjetHeros b, String dossierSprites) throws IOException {
 		this.heros = b;
 
