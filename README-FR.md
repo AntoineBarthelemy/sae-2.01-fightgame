@@ -61,7 +61,15 @@ Cliquez sur le bouton vert "Code", puis copiez le lien en HTTPS.
 Une fois le lien obtenu, ouvrez un terminal et tapez `git clone <le_lien>`*
 
 2. Compiler notre projet
-3. L'éxécuter 
+
+*Pour compiler notre jeu, placez-vous à la racine du projet "sae-2.01-fightgame", ouvrez un terminal et tapez la commande suivante :
+`javac -d out/production $(find src test -name "*.java")
+`*
+
+3. L'exécuter 
+
+*Pour exécuter notre programme et jouer au jeu, tapez simplement la commande suivante : `java -cp out/production testFighter
+`*
 
 
 ## Projet Collaboratif 
