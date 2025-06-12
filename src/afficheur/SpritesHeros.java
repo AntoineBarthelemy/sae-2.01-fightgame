@@ -176,22 +176,6 @@ public class SpritesHeros extends Sprites {
 		}
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public void resetAttaque() {
 		frameAttaque = 0;
 		dernierChangement = System.currentTimeMillis();
@@ -221,8 +205,6 @@ public class SpritesHeros extends Sprites {
 		// image par défaut
 		imageFile = dossierSprites + "/attaque-poing1.png";
 		im = ImageIO.read(new File(imageFile));
-
-
 
 		activite = "fixe";
 		sprites = new HashMap<String, Sprite>();

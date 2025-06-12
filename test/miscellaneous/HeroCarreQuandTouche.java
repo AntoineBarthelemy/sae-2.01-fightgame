@@ -50,8 +50,6 @@ public class HeroCarreQuandTouche extends ObjetHeros {
 	public void changeEtape(String nouvelleActivite) {
 		enAttaque = nouvelleActivite.equals("attaque");
 		debutAttaque = System.currentTimeMillis(); // Démarre l'attaque si activée
-		enAttaquePied = nouvelleActivite.equals("attaque-pied");
-		debutAttaquePied = System.currentTimeMillis();
 	}
 
 	public void changeEtapePied(String nouvelleActivite) {
