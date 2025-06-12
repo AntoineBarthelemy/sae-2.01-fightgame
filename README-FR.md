@@ -44,27 +44,14 @@ Le projet a été réalisé par Antoine Barthélémy et Lucas Cesar. Nelson n’
 
 - Antoine Barthélémy s’est occupé de la partie Back-End, incluant notamment la gestion des dégâts, des collisions et de la logique du jeu.
 - Lucas Cesar a pris en charge la partie Front-End, comprenant l’affichage des sprites, le fond d’écran et les éléments visuels.
-### Graphiques et Bande sonore
-
-Sprite
-Background
 
 ### Historique et Versionnement
 
-Version1.0.0Alpha - A rendre le 16 Juin 2025
+Version1.0.0Alpha - A rendre le 12 Juin 2025 avant 18h
 
 ## Installation et Lancement
 
-Cette partie réclamé par le sujet, et nécessaire pour une bonne utilisation de l'application renseignera la moyen de bien installer l'application, bien la compiler et bien l'exécuter, c'est le guide de démarrage.
 
--> Faire le Mini Tuto
-
-## Distribution
-
-Cette partie concerne la manière dont le projet est transmis, un launcher pour la distribution, pour les mise à jour, un package à télécharger, une copie du GIT sous forme open-source.
-
--> GitLab
--> Webhook
 
 ## Projet Collaboratif 
  
