@@ -8,55 +8,46 @@ import java.awt.event.ActionListener;
 public class FinDePartieMenu extends JFrame {
     public FinDePartieMenu() {
         setTitle("Fin de Partie");
-        setSize(300, 150);
+        setSize(600, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
 
-        JLabel label = new JLabel("Le combat est terminé !");
-        add(label);
+        JLabel label = new JLabel("Le combat est terminé !", SwingConstants.CENTER);
+        label.setFont(new Font("Arial", Font.BOLD, 24));
+        label.setForeground(Color.BLACK);
+        add(label, BorderLayout.NORTH);
+        label.setBorder(BorderFactory.createEmptyBorder(20, 0, 35, 0));
+
 
         JButton rejouer = new JButton("Rejouer");
         JButton quitter = new JButton("Quitter");
 
-        // Bouton Rejouer
-        rejouer.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose(); // Ferme le menu
-                System.out.println("Arrêt propre du jeu avant redémarrage...");
+        rejouer.setFont(new Font("Arial", Font.BOLD, 20));
+        rejouer.setBackground(Color.green);
+        quitter.setFont(new Font("Arial", Font.BOLD, 20));
+        quitter.setBackground(Color.red);
 
-                try {
-                    // Pause pour s'assurer que la boucle s'est bien stoppée
-                    Thread.sleep(1000);
+        JPanel panelBoutons = new JPanel();
+        panelBoutons.setLayout(new FlowLayout());
+        panelBoutons.add(rejouer);
+        panelBoutons.add(quitter);
+        add(panelBoutons, BorderLayout.CENTER);
 
-                    // Redémarrer un nouveau processus proprement
-                    String javaCommand = "java -cp " + System.getProperty("java.class.path") + " testFighter";
-                    Runtime.getRuntime().exec(javaCommand);
-                } catch (Exception ex) {
-                    System.out.println("Erreur lors du redémarrage !");
-                    ex.printStackTrace();
-                }
+        rejouer.addActionListener(e -> {
+            dispose();
+            try {
+                String javaCommand = "java -cp " + System.getProperty("java.class.path") + " testFighter";
+                Runtime.getRuntime().exec(javaCommand);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         });
 
-        // Bouton Quitter
-        quitter.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-
-        add(rejouer);
-        add(quitter);
+        quitter.addActionListener(e -> System.exit(0));
     }
 
-    // Afficher le menu de fin de partie
     public static void afficherMenu() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new FinDePartieMenu().setVisible(true);
-            }
-        });
+        SwingUtilities.invokeLater(() -> new FinDePartieMenu().setVisible(true));
     }
 }
